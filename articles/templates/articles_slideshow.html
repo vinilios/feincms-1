@@ -1,0 +1,36 @@
+<div class="box">
+    <div class="slideshow" id="flavor_2"></div>
+</div>
+
+<script>
+    //http://www.agilecarousel.com/
+var data=[
+{% for article in articles %}    
+{
+      "content": "<div class='slide_inner'><a class='photo_link' href='{{ article.get_absolute_url_slideshow }}'><img class='photo' src='{{ article.image.get_absolute_url }}' alt='Bike'></a><a class='caption' href='{{ article.get_absolute_url}}'>Sample Carousel Pic Goes Here And The Best Part is that...</a></div>",
+      "content_button": "<div class='thumb'><img src='{{ article.image.get_absolute_url }}' alt='{{ article.title }}'></div>{{ article.title|truncatechars:100|safe }}"
+},
+{% endfor %}
+]
+
+
+$(document).ready(function(){
+
+		 $("#flavor_2").agile_carousel({
+            carousel_data: data,
+            carousel_outer_height: 400,
+            carousel_height: 400,
+            slide_height: 230,
+            carousel_outer_width: 662,
+            slide_width: 662,
+            transition_type: "fade",
+            transition_time: 600,
+            timer: 3000,
+            continuous_scrolling: true,
+            control_set_1: "numbered_buttons,previous_button,pause_button,next_button",
+            control_set_2: "content_buttons",
+            change_on_hover: "content_buttons"
+        });
+
+});
+</script>

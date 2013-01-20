@@ -1,0 +1,17 @@
+{% load applicationcontent_tags feincms_tags feincms_page_tags %}
+<<!doctype html>
+<html>
+<head>
+	<title>Page not found</title>
+<style>
+a { color:orange }
+</style>
+</head>
+<body style="background:url('{{ APP.background_image.get_absolute_url }}') no-repeat center top #000;">
+    <div class="wrapper" style="text-align:center; color:#fff;">
+	<h1 style="color:#fff;">The page you requested was not found</h1>
+	<p>Sorry!</p>
+	<p>Please return to <a href="{% feincms_parentlink of feincms_page level=1 %}">homepage</a></p>
+	<p>If you feel like reporting a bug <a href="mailto:">contact us</a></p>
+    </div>
+</body>
